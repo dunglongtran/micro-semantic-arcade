@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
+import Parse from 'parse';
+import 'semantic-ui-css/semantic.min.css';
 
 const styles = {
   fontFamily: 'sans-serif',
