@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {
-  Grid,
+  Grid,List,
   Segment,
   Card,
   Image,
@@ -15,31 +15,39 @@ export default class GridListBlock extends Component {
     super(props);
   }
   render() {
-    const [first, second, third, fourth, fiveth, ...rest] = this.props.items;
+    const [first, ...rest] = this.props.items;
 
     console.log(this.props);
     return (
-      <Grid columns={3} fluid={true}>
+      <Grid columns={2} fluid={true}>
         <Grid.Column stretched width={8}>
           <Card fluid>
             <Image src={first.thumbs[0]} fluid />
+            <Card.Content>
+              <Card.Header>
+                Matthew
+      </Card.Header>
+              <Card.Meta>
+                <span className='date'>
+                  Joined in 2015
+        </span>
+              </Card.Meta>
+              <Card.Description>
+                Matthew is a musician living in Nashville.
+      </Card.Description>
+            </Card.Content>
           </Card>
         </Grid.Column>
-        <Grid.Column width={4}>
-          <Card fluid>
-            <Image src={second.thumbs[0]} fluid />
-          </Card>
-          <Card fluid>
-            <Image src={third.thumbs[0]} fluid />
-          </Card>
-        </Grid.Column>
-        <Grid.Column width={4}>
-          <Card fluid>
-            <Image src={fourth.thumbs[0]} fluid />
-          </Card>
-          <Card fluid>
-            <Image src={fiveth.thumbs[0]} fluid />
-          </Card>
+        <Grid.Column width={8}>
+          <List>
+          {rest.map(item=>(<List.Item>
+              <Image src={item.thumbs[0]} size='small'/>
+              <List.Content>
+              <List.Header as='a'>{item.name}</List.Header>
+            </List.Content>
+            </List.Item>))
+          }
+          </List>
         </Grid.Column>
       </Grid>
     );

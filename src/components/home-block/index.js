@@ -12,7 +12,7 @@ export default class HomeBlock extends Component {
   render() {
     const [first,second, third,fourth,fiveth, ...rest] = this.props.items;
   
-    console.log(this.props)
+    console.log(this.props,first)
     return (
       <Grid columns={3} fluid={true}>
         <Grid.Column stretched width={8}>
