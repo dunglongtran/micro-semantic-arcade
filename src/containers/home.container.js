@@ -1,41 +1,17 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Container } from "semantic-ui-react";
-import Block from "../components/home-block";
+import Block from "../components/home-block/";
+import GridListBlock from "../components/grid-list-block/";
+import { ITEMS } from "../common/data.mock";
 
-//@Mock
-const items = [
-  {
-    name: "Fruita Crush",
-    categories: ["puzzle,action, arcade"]
-  },
-  {
-    name: "Assin Creeds",
-    categories: ["rpg,action"]
-  },
-  {
-    name: "Plant & Zombie",
-    categories: ["puzzle,arcade"]
-  },
-  {
-    name: "Fruita Crush",
-    categories: ["puzzle,action, arcade"]
-  },
-  {
-    name: "Candy Crush",
-    categories: ["puzzle,action, arcade"]
-  },
-  {
-    name: "Panda Crush",
-    categories: ["puzzle,action, arcade"]
-  },
-];
-
-export default class HomeScreen extends PureComponent {
+export default class HomeScreen extends Component {
   render() {
     return (
       <Container>
-        <Block items/>
+        <Block items={ITEMS} />
+        <GridListBlock items={ITEMS} />
       </Container>
     );
   }
-}
+};
